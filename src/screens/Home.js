@@ -16,7 +16,7 @@ const Home = () => {
     const defaultVal = 0;
 
     const [bill, setBill] = useState('0.00');
-    const [tip, setTip] = useState('10');
+    const [tip, setTip] = useState('20');
     const [totalCount, setTotalCount] = useState('2');
     const [totalAmount, setTotalAmount] = useState('0.00');
 
