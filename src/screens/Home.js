@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, View, Text, Keyboard, Button} from 'react-native';
+import Modal from 'react-native-modal';
 
-import Input from "../components/Input"
+import Input from "../components/Input";
 import SplitOutput from "../containers/SplitOutput";
 
 const styles = StyleSheet.create({
@@ -14,6 +15,10 @@ const styles = StyleSheet.create({
 
 const Home = () => {
     const defaultVal = 0;
+    const [isModalVisible, setModalVisible] = useState(false);
+    const toggleModal = () => {
+      setModalVisible(!isModalVisible);
+    };
 
     const [bill, setBill] = useState('0.00');
     const [tip, setTip] = useState('10');
@@ -98,28 +103,49 @@ const Home = () => {
     };
 
     return (
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={styles.container}>
-                <Input
-                    label='Bill Total'
-                    amount={bill}
-                    placeholderText='0.00'
-                    handleTextChange={handleBillChange}
-                />
-                <Input
-                    label='Tip'
-                    amount={tip}
-                    placeholderText='10'
-                    handleTextChange={handleTipChange}
-                />
-                <SplitOutput
-                    totalCount={totalCount}
-                    totalAmount={totalAmount}
-                    handleCountAdd={handleCountAdd}
-                    handleCountRemove={handleCountRemove}
-                />
+        <View style={styles.container}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View>
+                    <Input
+                        label='Bill Total'
+                        amount={bill}
+                        placeholderText='0.00'
+                        handleTextChange={handleBillChange}
+                    />
+                    <Input
+                        label='Tip'
+                        amount={tip}
+                        placeholderText='10'
+                        handleTextChange={handleTipChange}
+                    />
+                    <SplitOutput
+                        totalCount={totalCount}
+                        totalAmount={totalAmount}
+                        handleCountAdd={handleCountAdd}
+                        handleCountRemove={handleCountRemove}
+                    />
+                </View>
+            </TouchableWithoutFeedback>
+            <View style={{ flex: 1}}>
+                <Button title="Show modal" onPress={toggleModal} />
+
+                <Modal
+                isVisible={isModalVisible}
+                onBackdropPress={() => setModalVisible(false)}
+                propagateSwipe
+                style= {{margin:0}}
+                >
+                    <View style={{ width: 300, height: 50,flexDirection: 'column',justifyContent:'flex-end', alignSelf:'center', backgroundColor: "white"}}>
+                        <Button title="Hide modal" onPress={toggleModal}/>
+                    </View>
+                    <View style={{ height: 500, width: 300, alignSelf: 'center', justifyContent: 'center', backgroundColor: "white"}}>
+                        <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean urna elit, eleifend aliquet suscipit at, aliquam sed nisi. Duis venenatis lacus convallis est dapibus, sed aliquam magna lacinia. Aliquam vitae.
+                        </Text>
+                    </View>
+                </Modal>
             </View>
-        </TouchableWithoutFeedback>
+        </View>
     );
 };
 
