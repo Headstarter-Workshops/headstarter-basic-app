@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Button,
 } from "react-native";
+import emailjs from "emailjs-com";
 
 const styles = StyleSheet.create({
   viewContainer: {
