@@ -49,6 +49,24 @@ const styles = StyleSheet.create({
 });
 
 const SendEmail = () => {
+  function sendTheEmail(values) {
+    emailjs
+      .send(
+        "service_80tyfat",
+        "template_tip_split",
+        values,
+        "user_ojgAjTwkWMfLLXF12qEII"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
+
   return (
     <View style={styles.viewContainer}>
       <Formik
@@ -56,10 +74,12 @@ const SendEmail = () => {
           from_name: "",
           to_name: "",
           email: "",
-          split_amount: "",
+          split_amount: "000",
         }}
         onSubmit={(values) => {
-          console.log(values);
+          // console.log(values);
+          sendTheEmail(values);
+          values.split_amount = "6000";
         }}
       >
         {(formikprops) => (
@@ -97,12 +117,6 @@ const SendEmail = () => {
             </TouchableOpacity>
           </View>
         )}
-
-        {/* <Text style={styles.textLabel}>Enter Recipient's Email Address:</Text>
-        <TextInput
-          style={styles.textInput}
-          placeholder="someone@anyemail.com"
-        /> */}
       </Formik>
     </View>
   );
