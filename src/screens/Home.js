@@ -1,16 +1,19 @@
+
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, TouchableWithoutFeedback, View, Text, Keyboard, Button} from 'react-native';
 import Modal from 'react-native-modal';
 
+
 import Input from "../components/Input";
 import SplitOutput from "../containers/SplitOutput";
+import SendEmail from "../components/SendEmail";
 
 const styles = StyleSheet.create({
-   container: {
-       flex: 1,
-       paddingTop: 40,
-       paddingHorizontal: 30,
-   },
+  container: {
+    flex: 1,
+    paddingTop: 40,
+    paddingHorizontal: 30,
+  },
 });
 
 const Home = () => {
@@ -124,6 +127,7 @@ const Home = () => {
                         handleCountAdd={handleCountAdd}
                         handleCountRemove={handleCountRemove}
                     />
+                    <SendEmail />
                 </View>
             </TouchableWithoutFeedback>
             <View style={{ flex: 1}}>
