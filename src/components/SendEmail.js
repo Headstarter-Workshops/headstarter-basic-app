@@ -73,6 +73,7 @@ const SendEmail = ({ people }) => {
         initialValues={{
           from_name: "",
           to_name: "",
+
           venmo_user: "",
           email: "",
           split_amount: "000",
