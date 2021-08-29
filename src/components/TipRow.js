@@ -11,12 +11,13 @@ const styles = StyleSheet.create({
         elevation: 8,
         backgroundColor: "#DDDDDD",
         borderRadius: 10,
-        padding: 10,
-        marginRight: 2,
+        paddingHorizontal: 9,
+        paddingVertical: 10,
     },
     tipContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
+        justifyContent: "space-between",
     },
     titleText:  {
         fontSize: 17,
@@ -27,25 +28,43 @@ const styles = StyleSheet.create({
     },
 });
 
-const TipRow =  ({label, customTip}) => {
+const TipRow =  ({label, tip1, tip2, tip3, tip4, tip5, handleTipChange, showCustomTip}) => {
     return (
         <View style={styles.section}>
             <Text style={styles.titleText}>{label}</Text>
             <View style={styles.tipContainer}>
-                <TouchableOpacity style={styles.tipButton}>
-                    <Text> 15% </Text>
+                <TouchableOpacity
+                    style={styles.tipButton}
+                    onPress={handleTipChange}
+                    key={1}
+                >
+                    <Text> {tip1} </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tipButton}>
-                    <Text> 20% </Text>
+                <TouchableOpacity
+                    style={styles.tipButton}
+                    onPress={handleTipChange}
+                >
+                    <Text> {tip2} </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tipButton}>
-                    <Text> 25% </Text>
+                <TouchableOpacity
+                    style={styles.tipButton}
+                    onPress={handleTipChange}
+                >
+                    <Text> {tip3} </Text>
                 </TouchableOpacity>
-
-                <TouchableOpacity style={styles.tipButton}>
-                    <Text> Custom Tip </Text>
+                <TouchableOpacity
+                    style={styles.tipButton}
+                    onPress={handleTipChange}
+                >
+                    <Text> {tip4} </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.tipButton}
+                    onPress={showCustomTip}
+                >
+                    <Text> {tip5} </Text>
                 </TouchableOpacity>
             </View>
         </View>

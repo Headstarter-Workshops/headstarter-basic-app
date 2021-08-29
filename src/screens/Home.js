@@ -15,9 +15,14 @@ const styles = StyleSheet.create({
 
 const Home = () => {
     const defaultVal = 0;
+    const tip1 = "15%";
+    const tip2 = "18%";
+    const tip3 = "20%";
+    const tip4 = "25%";
+    const tip5 = "Custom Tip";
 
     const [bill, setBill] = useState('0.00');
-    const [tip, setTip] = useState('10');
+    const [tip, setTip] = useState('0');
     const [totalCount, setTotalCount] = useState('2');
     const [totalAmount, setTotalAmount] = useState('0.00');
 
@@ -58,14 +63,26 @@ const Home = () => {
     };
 
     const handleTipChange = (value) => {
-        if (value.charAt(0) === '-'){
-            value = value.substring(1);
-            setTip(value);
+        console.log(value.target)
+        if(value.target._nativeTag == 27){
+            setTip(15)
         }
-        else
-        {
-            setTip(value);
+        else if(value.target._nativeTag == 39){
+            setTip(18)
         }
+        else if(value.target._nativeTag == 53){
+            setTip(20)
+        }
+        else if(value.target._nativeTag == 65){
+            setTip(25)
+        }
+        else if(value.target._nativeTag == 77){
+            setTip(18)
+        }
+    };
+
+    const showCustomTip = () => {
+
     };
 
     const handleCountAdd = () => {
@@ -109,6 +126,13 @@ const Home = () => {
                 />
                 <TipRow
                     label="Tip"
+                    tip1={tip1}
+                    tip2={tip2}
+                    tip3={tip3}
+                    tip4={tip4}
+                    tip5={tip5}
+                    handleTipChange={handleTipChange}
+                    showCustomTip={showCustomTip}
                 />
                 <SplitOutput
                     totalCount={totalCount}
