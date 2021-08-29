@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const TipRow =  ({label, tip1, tip2, tip3, tip4, tip5, handleTipChange, showCustomTip}) => {
+const TipRow =  ({label, handleTipChange, showCustomTip}) => {
     return (
         <View style={styles.section}>
             <Text style={styles.titleText}>{label}</Text>
@@ -38,33 +38,33 @@ const TipRow =  ({label, tip1, tip2, tip3, tip4, tip5, handleTipChange, showCust
                     onPress={handleTipChange}
                     key={1}
                 >
-                    <Text> {tip1} </Text>
+                    <Text> 15% </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={handleTipChange}
                 >
-                    <Text> {tip2} </Text>
+                    <Text> 18% </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={handleTipChange}
                 >
-                    <Text> {tip3} </Text>
+                    <Text> 20% </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={handleTipChange}
                 >
-                    <Text> {tip4} </Text>
+                    <Text> 25% </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={showCustomTip}
                 >
-                    <Text> {tip5} </Text>
+                    <Text> Custom Tip </Text>
                 </TouchableOpacity>
             </View>
         </View>

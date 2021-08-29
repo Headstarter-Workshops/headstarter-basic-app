@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, Modal, Text, Pressable, View, Keyboard} from 'react-native';
 
 import Input from "../components/Input"
 import SplitOutput from "../containers/SplitOutput";
@@ -11,21 +11,48 @@ const styles = StyleSheet.create({
        paddingTop: 40,
        paddingHorizontal: 30,
    },
+   centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
 });
 
 const Home = () => {
     const defaultVal = 0;
-    const tip1 = "15%";
-    const tip2 = "18%";
-    const tip3 = "20%";
-    const tip4 = "25%";
-    const tip5 = "Custom Tip";
 
     const [bill, setBill] = useState('0.00');
     const [tip, setTip] = useState('0');
     const [totalCount, setTotalCount] = useState('2');
     const [totalAmount, setTotalAmount] = useState('0.00');
-
+    const [modalVisible, setModalVisible] = useState(false);
     // User input/Usage are SIDE EFFECTS within the application
     // we have to take take care of the following operations:
     // entering bill amount
@@ -62,27 +89,37 @@ const Home = () => {
         }
     };
 
-    const handleTipChange = (value) => {
-        console.log(value.target)
-        if(value.target._nativeTag == 27){
+    const handleTipChange = (e) => {
+        console.log(e.target._nativeTag);
+
+        if(e.target._nativeTag == 23 || e.target._nativeTag == 25){
             setTip(15)
         }
-        else if(value.target._nativeTag == 39){
+        else if(e.target._nativeTag == 29 || e.target._nativeTag == 33){
             setTip(18)
         }
-        else if(value.target._nativeTag == 53){
+        else if(e.target._nativeTag == 37 || e.target._nativeTag == 39){
             setTip(20)
         }
-        else if(value.target._nativeTag == 65){
+        else if(e.target._nativeTag == 45 || e.target._nativeTag == 47){
             setTip(25)
         }
-        else if(value.target._nativeTag == 77){
-            setTip(18)
+    };
+
+    const handleCustomTipChange = (value) => {
+        if (value.charAt(0) === '-'){
+            value = value.substring(1);
+            setTip(value);
+        }
+        else
+        {
+            setTip(value);
         }
     };
 
     const showCustomTip = () => {
-
+        console.log("clicked")
+        setModalVisible(true)
     };
 
     const handleCountAdd = () => {
@@ -126,11 +163,6 @@ const Home = () => {
                 />
                 <TipRow
                     label="Tip"
-                    tip1={tip1}
-                    tip2={tip2}
-                    tip3={tip3}
-                    tip4={tip4}
-                    tip5={tip5}
                     handleTipChange={handleTipChange}
                     showCustomTip={showCustomTip}
                 />
@@ -140,8 +172,34 @@ const Home = () => {
                     handleCountAdd={handleCountAdd}
                     handleCountRemove={handleCountRemove}
                 />
-
-
+                <View style={styles.centeredView}>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                            Alert.alert("Modal has been closed.");
+                            setModalVisible(!modalVisible);
+                        }}
+                    >
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Input
+                                    label='Custom Amount'
+                                    amount={tip}
+                                    placeholderText='0.00'
+                                    handleTextChange={handleCustomTipChange}
+                                />
+                                <Pressable
+                                  style={[styles.button, styles.buttonClose]}
+                                  onPress={() => setModalVisible(!modalVisible)}
+                                >
+                                  <Text style={styles.textStyle}>Done</Text>
+                                </Pressable>
+                            </View>
+                        </View>
+                    </Modal>
+                </View>
             </View>
         </TouchableWithoutFeedback>
     );
