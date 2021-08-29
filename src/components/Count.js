@@ -38,6 +38,7 @@ const Count =  ({totalCount, handleNumOfPeople}) => {
                     totalHeight={40}
                     minValue={1}
                     borderColor={"black"}
+                    editable={false}
                 />
             </View>
         </View>
