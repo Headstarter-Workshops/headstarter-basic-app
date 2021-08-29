@@ -113,7 +113,6 @@ const Home = () => {
 
     }, [bill, tip, totalCount]); // the variables in the array are function arguments to useEffect()
 
-
     const handleBillChange = (value) => {
         if (value.charAt(0) === '-'){
             value = value.substring(1);
@@ -138,7 +137,6 @@ const Home = () => {
         setTip(25);
     };
 
-
     const handleCustomTipChange = (value) => {
         if (value.charAt(0) === '-'){
             value = value.substring(1);
@@ -151,40 +149,13 @@ const Home = () => {
     };
 
     const showCustomTip = () => {
-        console.log("clicked")
         setTip("0")
         setModalVisible(true)
     };
 
-    const handleCountAdd = () => {
-        setTotalCount((totalCount) => {
-            const total = parseInt(totalCount) + 1;
-            return total.toString();
-        });
-    };
-
-    // User input/Usage are SIDE EFFECTS within the application
-    // we have to take take care of the following operations:
-    // entering bill amount
-    // entering tip percentage
-    // increasing or decreasing totalCount (which references the button that we press to plus or minus)
-
-    // How do we manage these side effects?
-    // we use another hook!
-    // useEffect hook
-
-    const handleCountRemove = () => {
-        setTotalCount((totalCount) => {
-            if (totalCount == 1){
-                const total = 1;
-                return total.toString();
-            }
-            else {
-                const total = parseInt(totalCount) - 1;
-                return total.toString();
-            }
-        });
-    };
+    const handleNumOfPeople = (value) => {
+        setTotalCount(value)
+    }
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -225,8 +196,7 @@ const Home = () => {
                 <SplitOutput
                     totalCount={totalCount}
                     totalAmount={totalAmount}
-                    handleCountAdd={handleCountAdd}
-                    handleCountRemove={handleCountRemove}
+                    handleNumOfPeople={handleNumOfPeople}
                 />
                 <View style={styles.centeredView}>
                     <Modal

@@ -8,22 +8,19 @@ const styles = StyleSheet.create({
     outputContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#B7E9F7',
-        borderWidth: 1,
         borderRadius: 10,
-        paddingVertical: 40,
+        paddingVertical: 10,
         paddingHorizontal: 20,
     },
 
 });
 
-const SplitOutput = ({totalCount, handleCountAdd, handleCountRemove, totalAmount}) => {
+const SplitOutput = ({totalCount, totalAmount, handleNumOfPeople}) => {
     return (
         <View style={styles.outputContainer}>
             <Count
                 totalCount={totalCount}
-                handleCountAdd={handleCountAdd}
-                handleCountRemove={handleCountRemove}
+                handleNumOfPeople={handleNumOfPeople}
             />
             <Total totalAmount={totalAmount}/>
         </View>

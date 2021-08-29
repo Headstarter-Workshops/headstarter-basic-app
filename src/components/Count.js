@@ -1,14 +1,16 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import NumericInput from 'react-native-numeric-input'
 
 import {StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
     textTitle: {
         fontSize: 17,
-        color: 'black',
-        fontWeight: '700',
+        color: '#2196F3',
         letterSpacing: 1.5,
+        fontWeight: '700',
+        marginVertical: 3
     },
     splitContainer: {
         justifyContent: 'space-between',
@@ -20,28 +22,22 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     splitInput: {
-        fontSize: 20,
+        borderWidth: 1
     }
 });
 
-const Count =  ({totalCount, handleCountAdd, handleCountRemove}) => {
+const Count =  ({totalCount, handleNumOfPeople}) => {
     return (
         <View>
-            <Text style={styles.textTitle}>Split</Text>
+            <Text style={styles.textTitle}>Number of People</Text>
             <View style={styles.splitContainer}>
-                <Ionicons
-                    style={styles.icon}
-                    name='add'
-                    size={24}
-                    onPress={handleCountAdd}
-                />
-                <Text style={styles.splitInput}>{totalCount}</Text>
-                <Ionicons
-                    style={styles.icon}
-                    name='remove'
-                    size={24}
-                    onPress={handleCountRemove}
-                    disabled={totalCount < 2}
+                <NumericInput
+                    rounded
+                    onChange={handleNumOfPeople}
+                    totalWidth={150}
+                    totalHeight={40}
+                    minValue={1}
+                    borderColor={"black"}
                 />
             </View>
         </View>
