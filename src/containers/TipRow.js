@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
+import  Tip from '../components/Tip';
+
 const styles = StyleSheet.create({
     section: {
         padding: 10,
@@ -38,33 +40,22 @@ const TipRow =  ({label, handleTipChange, showCustomTip}) => {
         <View style={styles.section}>
             <Text style={styles.titleText}>{label}</Text>
             <View style={styles.tipContainer}>
-                <TouchableOpacity
-                    style={styles.tipButton}
-                    onPress={handleTipChange}
-                    key={1}
-                >
-                    <Text style={styles.textStyle}> 15% </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.tipButton}
-                    onPress={handleTipChange}
-                >
-                    <Text style={styles.textStyle}> 18% </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.tipButton}
-                    onPress={handleTipChange}
-                >
-                    <Text style={styles.textStyle}> 20% </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.tipButton}
-                    onPress={handleTipChange}
-                >
-                    <Text style={styles.textStyle}> 25% </Text>
-                </TouchableOpacity>
+                <Tip
+                    tip={"15%"}
+                    handleTipChange={handleTipChange}
+                />
+                <Tip
+                    tip={"18%"}
+                    handleTipChange={handleTipChange}
+                />
+                <Tip
+                    tip={"20%"}
+                    handleTipChange={handleTipChange}
+                />
+                <Tip
+                    tip={"25%"}
+                    handleTipChange={handleTipChange}
+                />
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={showCustomTip}
