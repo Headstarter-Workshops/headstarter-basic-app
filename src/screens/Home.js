@@ -127,7 +127,7 @@ const Home = () => {
                         handleCountAdd={handleCountAdd}
                         handleCountRemove={handleCountRemove}
                     />
-                    <SendEmail people={totalCount}/>
+                    <SendEmail />
                 </View>
             </TouchableWithoutFeedback>
             <View style={{ flex: 1}}>
