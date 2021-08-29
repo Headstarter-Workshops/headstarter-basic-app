@@ -52,4 +52,3 @@ const Input = ({label, amount, placeholderText, handleTextChange}) => {
 };
 
 export default Input;
-

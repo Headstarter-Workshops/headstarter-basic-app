@@ -3,6 +3,7 @@ import {StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native
 
 import Input from "../components/Input"
 import SplitOutput from "../containers/SplitOutput";
+import TipRow from "../components/TipRow"
 
 const styles = StyleSheet.create({
    container: {
@@ -16,7 +17,7 @@ const Home = () => {
     const defaultVal = 0;
 
     const [bill, setBill] = useState('0.00');
-    const [tip, setTip] = useState('20');
+    const [tip, setTip] = useState('10');
     const [totalCount, setTotalCount] = useState('2');
     const [totalAmount, setTotalAmount] = useState('0.00');
 
@@ -106,11 +107,8 @@ const Home = () => {
                     placeholderText='0.00'
                     handleTextChange={handleBillChange}
                 />
-                <Input
-                    label='Tip'
-                    amount={tip}
-                    placeholderText='10'
-                    handleTextChange={handleTipChange}
+                <TipRow
+                    label="Tip"
                 />
                 <SplitOutput
                     totalCount={totalCount}
@@ -118,6 +116,8 @@ const Home = () => {
                     handleCountAdd={handleCountAdd}
                     handleCountRemove={handleCountRemove}
                 />
+
+
             </View>
         </TouchableWithoutFeedback>
     );
