@@ -11,8 +11,9 @@ const styles = StyleSheet.create({
         elevation: 8,
         backgroundColor: "#DDDDDD",
         borderRadius: 10,
-        paddingHorizontal: 9,
+        paddingHorizontal: 8,
         paddingVertical: 10,
+        borderWidth: 1
     },
     tipContainer: {
         flexDirection: "row",
