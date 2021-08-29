@@ -32,7 +32,9 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
+    paddingHorizontal: 30,
+    paddingBottom: 30,
+    paddingTop: 10,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -43,13 +45,18 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5
   },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
 });
 
 const Home = () => {
-    const defaultVal = 0;
+    const defaultVal = "0";
 
     const [bill, setBill] = useState('0.00');
-    const [tip, setTip] = useState('0');
+    const [tip, setTip] = useState("0");
     const [totalCount, setTotalCount] = useState('2');
     const [totalAmount, setTotalAmount] = useState('0.00');
     const [modalVisible, setModalVisible] = useState(false);
