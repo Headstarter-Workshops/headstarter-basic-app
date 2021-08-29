@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SendEmail = ({people}) => {
+const SendEmail = ({ people }) => {
   function sendTheEmail(values) {
     emailjs
       .send(
@@ -66,13 +66,14 @@ const SendEmail = ({people}) => {
         }
       );
   }
-  console.log(people)
+  console.log(people);
   return (
     <View style={styles.viewContainer}>
       <Formik
         initialValues={{
           from_name: "",
           to_name: "",
+          venmo_user: "",
           email: "",
           split_amount: "000",
         }}
@@ -85,7 +86,6 @@ const SendEmail = ({people}) => {
         {(formikprops) => (
           <View>
             // here we could put the number of emails we have left
-            
             <Text style={styles.textLabel}>Enter Your Name:</Text>
             <TextInput
               style={styles.textInput}
@@ -93,29 +93,35 @@ const SendEmail = ({people}) => {
               onChangeText={formikprops.handleChange("from_name")}
               value={formikprops.values.from_name}
             />
+            {Array.from({ length: people }).map((_, idx) => (
+              <>
+                <Text style={styles.textLabel}>Enter Recipient's Name:</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="Recipient's Name"
+                  onChangeText={formikprops.handleChange("to_name")}
+                  value={formikprops.values.to_name}
+                />
 
-            {
-              Array.from({ length: people }).map((_, idx) => (
-                <>
-                  <Text style={styles.textLabel}>Enter Recipient's Name:</Text>
-                  <TextInput
-                    style={styles.textInput}
-                    placeholder="Recipient's Name"
-                    onChangeText={formikprops.handleChange("to_name")}
-                    value={formikprops.values.to_name}
-                  />
-                  <Text style={styles.textLabel}>
-                    Enter Recipient's Email Address:
-                  </Text>
-                  <TextInput
-                    style={styles.textInput}
-                    placeholder="someone@anyemail.com"
-                    onChangeText={formikprops.handleChange("email")}
-                    value={formikprops.values.email}
-                  />
-                </>
-              ))
-            }
+                <Text style={styles.textLabel}>Your venmo username:</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="Your venmo name"
+                  onChangeText={formikprops.handleChange("venmo_user")}
+                  value={formikprops.values.venmo_user}
+                />
+
+                <Text style={styles.textLabel}>
+                  Enter Recipient's Email Address:
+                </Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="someone@anyemail.com"
+                  onChangeText={formikprops.handleChange("email")}
+                  value={formikprops.values.email}
+                />
+              </>
+            ))}
             <TouchableOpacity
               style={styles.button}
               title="submit"
