@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Tip = ({tip, handleTipChange, className}) => {
+const Tip = ({tip, handleTipChange}) => {
     return (
         <View>
             <TouchableOpacity
