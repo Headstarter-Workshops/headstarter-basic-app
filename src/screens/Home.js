@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, Modal, Text, Pressable, View, Keyboard} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, Modal, Text, TouchableOpacity, View, Keyboard} from 'react-native';
 
 import Input from "../components/Input"
 import SplitOutput from "../containers/SplitOutput";
@@ -126,6 +126,7 @@ const Home = () => {
 
     const showCustomTip = () => {
         console.log("clicked")
+        setTip("0")
         setModalVisible(true)
     };
 
@@ -197,12 +198,12 @@ const Home = () => {
                                     placeholderText='0.00'
                                     handleTextChange={handleCustomTipChange}
                                 />
-                                <Pressable
+                                <TouchableOpacity
                                   style={[styles.button, styles.buttonClose]}
                                   onPress={() => setModalVisible(!modalVisible)}
                                 >
                                   <Text style={styles.textStyle}>Done</Text>
-                                </Pressable>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </Modal>

@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         marginVertical: 3
     },
+    textStyle: {
+       fontSize: 14,
+       color: "black"
+    },
 });
 
 const TipRow =  ({label, handleTipChange, showCustomTip}) => {
@@ -38,33 +42,33 @@ const TipRow =  ({label, handleTipChange, showCustomTip}) => {
                     onPress={handleTipChange}
                     key={1}
                 >
-                    <Text> 15% </Text>
+                    <Text style={styles.textStyle}> 15% </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={handleTipChange}
                 >
-                    <Text> 18% </Text>
+                    <Text style={styles.textStyle}> 18% </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={handleTipChange}
                 >
-                    <Text> 20% </Text>
+                    <Text style={styles.textStyle}> 20% </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={handleTipChange}
                 >
-                    <Text> 25% </Text>
+                    <Text style={styles.textStyle}> 25% </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.tipButton}
                     onPress={showCustomTip}
                 >
-                    <Text> Custom Tip </Text>
+                    <Text style={styles.textStyle}> Custom Tip </Text>
                 </TouchableOpacity>
             </View>
         </View>

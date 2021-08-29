@@ -13,10 +13,15 @@ const styles = StyleSheet.create({
     splitContainer: {
         justifyContent: 'space-between',
         alignItems: 'center',
+        margin: 5
     },
     icon: {
-        backgroundColor: '#94d2bd',
+        backgroundColor: '#FFE5B4',
+        borderWidth: 1
     },
+    splitInput: {
+        fontSize: 20,
+    }
 });
 
 const Count =  ({totalCount, handleCountAdd, handleCountRemove}) => {

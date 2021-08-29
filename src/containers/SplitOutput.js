@@ -8,11 +8,13 @@ const styles = StyleSheet.create({
     outputContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#bdb2ff',
+        backgroundColor: '#B7E9F7',
+        borderWidth: 2,
         borderRadius: 10,
         paddingVertical: 40,
         paddingHorizontal: 20,
     },
+
 });
 
 const SplitOutput = ({totalCount, handleCountAdd, handleCountRemove, totalAmount}) => {
