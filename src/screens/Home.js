@@ -3,7 +3,7 @@ import {StyleSheet, TouchableWithoutFeedback, Modal, Text, TouchableOpacity, Vie
 
 import Input from "../components/Input"
 import SplitOutput from "../containers/SplitOutput";
-import TipRow from "../containers/TipRow"
+import Tip from "../components/Tip"
 
 const styles = StyleSheet.create({
    container: {
@@ -49,6 +49,35 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center"
+  },
+  section: {
+      padding: 10,
+      marginVertical: 10,
+  },
+  tipButton: {
+      display: "flex",
+      elevation: 8,
+      backgroundColor: "#DDDDDD",
+      borderRadius: 10,
+      paddingHorizontal: 8,
+      paddingVertical: 10,
+      borderWidth: 1
+  },
+  tipContainer: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+  },
+  titleText:  {
+      fontSize: 17,
+      color: '#2196F3',
+      letterSpacing: 1.5,
+      fontWeight: '700',
+      marginVertical: 3
+  },
+  textStyle: {
+     fontSize: 14,
+     color: "black"
   },
 });
 
@@ -96,13 +125,19 @@ const Home = () => {
         }
     };
 
-    const handleTipChange = (e) => {
-        console.log(e);
+    const handleTip1 = () => {
+        setTip(15);
+    };
+    const handleTip2 = () => {
+        setTip(18);
+    };
+    const handleTip3 = () => {
+        setTip(20);
+    };
+    const handleTip4 = () => {
+        setTip(25);
     };
 
-    const onPress = () => {
-
-    };
 
     const handleCustomTipChange = (value) => {
         if (value.charAt(0) === '-'){
@@ -160,11 +195,33 @@ const Home = () => {
                     placeholderText='0.00'
                     handleTextChange={handleBillChange}
                 />
-                <TipRow
-                    label="Tip"
-                    handleTipChange={handleTipChange}
-                    showCustomTip={showCustomTip}
-                />
+                <View style={styles.section}>
+                    <Text style={styles.titleText}>Tip</Text>
+                    <View style={styles.tipContainer}>
+                        <Tip
+                            tip={"15%"}
+                            handleTipChange={handleTip1}
+                        />
+                        <Tip
+                            tip={"18%"}
+                            handleTipChange={handleTip2}
+                        />
+                        <Tip
+                            tip={"20%"}
+                            handleTipChange={handleTip3}
+                        />
+                        <Tip
+                            tip={"25%"}
+                            handleTipChange={handleTip4}
+                        />
+                        <TouchableOpacity
+                            style={styles.tipButton}
+                            onPress={showCustomTip}
+                        >
+                            <Text style={styles.textStyle}> Custom Tip </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
                 <SplitOutput
                     totalCount={totalCount}
                     totalAmount={totalAmount}
