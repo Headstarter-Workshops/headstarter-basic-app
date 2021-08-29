@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SendEmail = ({people}) => {
+const SendEmail = () => {
   function sendTheEmail(values) {
     emailjs
       .send(
@@ -66,7 +66,7 @@ const SendEmail = ({people}) => {
         }
       );
   }
-  console.log(people)
+
   return (
     <View style={styles.viewContainer}>
       <Formik
@@ -84,8 +84,6 @@ const SendEmail = ({people}) => {
       >
         {(formikprops) => (
           <View>
-            // here we could put the number of emails we have left
-            
             <Text style={styles.textLabel}>Enter Your Name:</Text>
             <TextInput
               style={styles.textInput}
@@ -93,29 +91,23 @@ const SendEmail = ({people}) => {
               onChangeText={formikprops.handleChange("from_name")}
               value={formikprops.values.from_name}
             />
+            <Text style={styles.textLabel}>Enter Recipient's Name:</Text>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Recipient's Name"
+              onChangeText={formikprops.handleChange("to_name")}
+              value={formikprops.values.to_name}
+            />
+            <Text style={styles.textLabel}>
+              Enter Recipient's Email Address:
+            </Text>
+            <TextInput
+              style={styles.textInput}
+              placeholder="someone@anyemail.com"
+              onChangeText={formikprops.handleChange("email")}
+              value={formikprops.values.email}
+            />
 
-            {
-              Array.from({ length: people }).map((_, idx) => (
-                <>
-                  <Text style={styles.textLabel}>Enter Recipient's Name:</Text>
-                  <TextInput
-                    style={styles.textInput}
-                    placeholder="Recipient's Name"
-                    onChangeText={formikprops.handleChange("to_name")}
-                    value={formikprops.values.to_name}
-                  />
-                  <Text style={styles.textLabel}>
-                    Enter Recipient's Email Address:
-                  </Text>
-                  <TextInput
-                    style={styles.textInput}
-                    placeholder="someone@anyemail.com"
-                    onChangeText={formikprops.handleChange("email")}
-                    value={formikprops.values.email}
-                  />
-                </>
-              ))
-            }
             <TouchableOpacity
               style={styles.button}
               title="submit"
