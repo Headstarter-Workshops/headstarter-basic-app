@@ -13,5 +13,6 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Simulator Screen Recording - iPhone 11 - 2021-08-28 at 20 14 25](https://user-images.githubusercontent.com/55410958/131253551-8f2369a3-2fb2-4e88-90fc-cd900b304187.gif)
+![Simulator Screen Recording - iPhone 11 - 2021-08-29 at 10 21 01](https://user-images.githubusercontent.com/55410958/131253677-1e352e55-e68e-4ad1-8807-8262696350b7.gif)
+
 
