@@ -57,6 +57,10 @@ Use less dependencies
 
 Update all npm modules
 
+## Bugs
+
+Dependency Errors
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
