@@ -1,6 +1,5 @@
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import NumericInput from 'react-native-numeric-input'
+import Counter from "react-native-counters";
 
 import {StyleSheet, Text, View} from 'react-native';
 
@@ -31,14 +30,20 @@ const Count =  ({totalCount, handleNumOfPeople}) => {
         <View>
             <Text style={styles.textTitle}>Number of People</Text>
             <View style={styles.splitContainer}>
-                <NumericInput
-                    rounded
+                <Counter
+                    buttonStyle={{
+                        borderColor: '#333',
+                        borderWidth: 2,
+                    }}
+                    buttonTextStyle={{
+                        color: '#333',
+                    }}
+                    countTextStyle={{
+                        color: '#333',
+                    }}
                     onChange={handleNumOfPeople}
-                    totalWidth={150}
-                    totalHeight={40}
-                    minValue={1}
-                    borderColor={"black"}
-                    editable={false}
+                    start={1}
+                    min={1}
                 />
             </View>
         </View>

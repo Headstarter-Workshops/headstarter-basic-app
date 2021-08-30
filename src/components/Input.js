@@ -38,6 +38,7 @@ const Input = ({label, amount, placeholderText, handleTextChange}) => {
         <View style={styles.section}>
             <Text style={styles.titleText}>{label}</Text>
             <View style={styles.textInputView}>
+                <Text style={styles.textInput}>$</Text>
                 <TextInput
                     style={styles.textInput}
                     keyboardType='numeric'
@@ -45,7 +46,6 @@ const Input = ({label, amount, placeholderText, handleTextChange}) => {
                     defaultValue={amount}
                     onChangeText={handleTextChange}
                 />
-                {label === 'Tip' ? <Text style={styles.textInput}>%</Text> : null}
             </View>
         </View>
     );

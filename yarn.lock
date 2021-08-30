@@ -4896,6 +4896,14 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-native-counters@^1.2.0":
+  "integrity" "sha512-KFcpyopqFXOb2iw1qbVJRbxmJStK8jcf/zlEJ/PAy6sV4M82xGImRFy+Y1jqdm6Eherg34LR2ay4KYoA3wB/8g=="
+  "resolved" "https://registry.npmjs.org/react-native-counters/-/react-native-counters-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "prop-types" "^15.6.2"
+    "react-native-text" "^1.0.8"
+
 "react-native-numeric-input@^1.9.0":
   "integrity" "sha512-PEtji6X0duniB/PrCl4DgBFSmjrQQaMxfZqGqbUjh1UalNX4ITdrPyctZK5BFs2/AbJq05tj/OYBNEGTiDIbPw=="
   "resolved" "https://registry.npmjs.org/react-native-numeric-input/-/react-native-numeric-input-1.9.0.tgz"
@@ -4913,6 +4921,11 @@
   "integrity" "sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA=="
   "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz"
   "version" "3.2.0"
+
+"react-native-text@^1.0.8":
+  "integrity" "sha512-pw6qY88hH5EXhnBzkN4KuRVdpjc0TZtL94/0oznDSXdowTf8Lrqsxg8LTlSrypBWNiWa8++6zfDz6dEfbHw45A=="
+  "resolved" "https://registry.npmjs.org/react-native-text/-/react-native-text-1.2.2.tgz"
+  "version" "1.2.2"
 
 "react-native-vector-icons@^4.*":
   "integrity" "sha512-rpfhfPiXCK2PX1nrNhdxSMrEGB/Gw/SvKoPM0G2wAkSoqynnes19K0VYI+Up7DqR1rFIpE4hP2erpT1tNx2tfg=="
