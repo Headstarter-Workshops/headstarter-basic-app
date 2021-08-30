@@ -65,4 +65,4 @@ Dependency Errors
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/bBjm1el7Xq.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/aD6Qoo0a6Z.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
