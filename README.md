@@ -7,8 +7,11 @@ Time spent: **15** hours spent in total
 ## Team Members
 
 Product Manager / BackEnd developer: Drew Lee
+
 Lead Backend Developer: Nazmul Karim
+
 Lead FrontEnd Developers: Nabil Fayak, Abdullah Saleh, Haseeb Javed
+
 Fullstack Developers: Manav Patel, Tajwar Rahman
 
 ## User Stories
