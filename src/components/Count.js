@@ -44,6 +44,7 @@ const Count =  ({totalCount, handleNumOfPeople}) => {
                     onChange={handleNumOfPeople}
                     start={1}
                     min={1}
+                    max={25}
                 />
             </View>
         </View>
