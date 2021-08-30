@@ -29,8 +29,11 @@ The following **bonus** features are implemented:
 ## Challenges Encountered
 
 Learning React-Native
+
 Handling dependencies
+
 Version Control using GitHub
+
 Organizing and Controlling work within the sub-teams of the group
 
 ## Additional Notes
@@ -38,13 +41,17 @@ Organizing and Controlling work within the sub-teams of the group
 What you enjoyed the most:
 
 Contributing to an open-source project
+
 Creating functional features of an app
+
 Customizing Ui
 
 What would you do differently?
 
 Look at React-Native documentation from the start
+
 Use less dependencies
+
 Update all npm modules
 
 ## Video Walkthrough
