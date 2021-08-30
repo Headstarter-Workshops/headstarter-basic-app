@@ -8,7 +8,7 @@ Time spent: **15** hours spent in total
 
 Product Manager / BackEnd developer: Drew Lee
 
-Lead Backend Developer: Nazmul Kareem
+Lead Backend Developer: Nazmul Karim
 
 Lead FrontEnd Developers: Nabil Fayak, Abdullah Saleh, Haseeb Javed
 
