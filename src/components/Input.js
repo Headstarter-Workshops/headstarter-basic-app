@@ -15,10 +15,11 @@ const styles = StyleSheet.create({
     },
    titleText:  {
        fontSize: 17,
-       color: '#2196F3',
+       color: '#40916c',
        letterSpacing: 1.5,
        fontWeight: '700',
-       marginVertical: 3
+       marginVertical: 3,
+       alignSelf: 'center',
    },
     textInputView: {
        flexDirection: 'row',

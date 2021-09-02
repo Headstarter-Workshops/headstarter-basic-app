@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     width: '20%',
   },
   textStyle: {
-     fontSize: 14,
-     color: "black"
+      fontSize: 14,
+     color: "black",
   },
   tipButton: {
       display: "flex",
@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       paddingHorizontal: 8,
       paddingVertical: 10,
-      borderWidth: 1
+      marginRight: 5,
+      marginVertical: 5,
+      borderWidth: 0
   },
 });
 

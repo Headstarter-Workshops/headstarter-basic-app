@@ -1,12 +1,12 @@
 import React from 'react';
 import Counter from "react-native-counters";
 
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
     textTitle: {
         fontSize: 17,
-        color: '#2196F3',
+        color: '#40916c',
         letterSpacing: 1.5,
         fontWeight: '700',
         marginVertical: 3
@@ -22,13 +22,17 @@ const styles = StyleSheet.create({
     },
     splitInput: {
         borderWidth: 1
-    }
+    },
+    tinyLogo: {
+        width: 500,
+        height: 500,
+    },
 });
 
 const Count =  ({totalCount, handleNumOfPeople}) => {
     return (
         <View>
-            <Text style={styles.textTitle}>Number of People</Text>
+            <Text style={styles.textTitle}>🧍🏽# of People</Text>
             <View style={styles.splitContainer}>
                 <Counter
                     buttonStyle={{

@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, Modal, Text, TouchableOpacity, View, Keyboard} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, Image, Modal, Text, TouchableOpacity, View, Keyboard} from 'react-native';
 
 import Input from "../components/Input"
 import SplitOutput from "../containers/SplitOutput";
 import Tip from "../components/Tip"
+import { IMAGENAME } from '../../index';
+
 
 const styles = StyleSheet.create({
    container: {
        flex: 1,
        paddingTop: 40,
        paddingHorizontal: 30,
+       backgroundColor: '#ece4db',
    },
    centeredView: {
     flex: 1,
@@ -54,26 +57,33 @@ const styles = StyleSheet.create({
       padding: 10,
       marginVertical: 10,
   },
+    tinyLogo: {
+        width: 300,
+        height: 300,
+        alignSelf: 'center',
+    },
   tipButton: {
-      display: "flex",
-      elevation: 8,
-      backgroundColor: "#DDDDDD",
-      borderRadius: 10,
-      paddingHorizontal: 8,
-      paddingVertical: 10,
-      borderWidth: 1
-  },
+        display: "flex",
+        elevation: 8,
+        backgroundColor: "#DDDDDD",
+        borderRadius: 10,
+        paddingHorizontal: 8,
+        paddingVertical: 10,
+        borderWidth: 0
+    },
   tipContainer: {
       flexDirection: "row",
       flexWrap: "wrap",
-      justifyContent: "space-between",
+      justifyContent: "center",
+      paddingHorizontal: 5,
   },
   titleText:  {
       fontSize: 17,
-      color: '#2196F3',
+      color: '#40916c',
       letterSpacing: 1.5,
       fontWeight: '700',
-      marginVertical: 3
+      marginVertical: 3,
+      alignSelf: 'center',
   },
   textStyle: {
      fontSize: 14,
@@ -161,13 +171,13 @@ const Home = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
                 <Input
-                    label='Bill Total'
+                    label='Bill Total 💸💸'
                     amount={bill}
                     placeholderText='0.00'
                     handleTextChange={handleBillChange}
                 />
                 <View style={styles.section}>
-                    <Text style={styles.titleText}>Tip</Text>
+                    <Text style={styles.titleText}>Tip 💰💰</Text>
                     <View style={styles.tipContainer}>
                         <Tip
                             tip={"15%"}
@@ -226,6 +236,10 @@ const Home = () => {
                         </View>
                     </Modal>
                 </View>
+                <Image
+                    style={styles.tinyLogo}
+                    source={IMAGENAME}
+                />
             </View>
         </TouchableWithoutFeedback>
     );
