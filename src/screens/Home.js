@@ -1,23 +1,19 @@
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, TouchableWithoutFeedback, View, Keyboard} from 'react-native';
 
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Modal, Pressable, TouchableWithoutFeedback, View, Text, Keyboard, Button } from 'react-native';
-
-
-import Input from "../components/Input";
+import Input from "../components/Input"
 import SplitOutput from "../containers/SplitOutput";
-import SendEmail from "../components/SendEmail";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 40,
-        paddingHorizontal: 30,
-    },
+   container: {
+       flex: 1,
+       paddingTop: 40,
+       paddingHorizontal: 30,
+   },
 });
 
 const Home = () => {
     const defaultVal = 0;
-    const [modalVisible, setModalVisible] = useState(false);
 
     const [bill, setBill] = useState('0.00');
     const [tip, setTip] = useState('10');
@@ -50,21 +46,23 @@ const Home = () => {
 
 
     const handleBillChange = (value) => {
-        if (value.charAt(0) === '-') {
+        if (value.charAt(0) === '-'){
             value = value.substring(1);
             setBill(value);
         }
-        else {
+        else
+        {
             setBill(value);
         }
     };
 
     const handleTipChange = (value) => {
-        if (value.charAt(0) === '-') {
+        if (value.charAt(0) === '-'){
             value = value.substring(1);
             setTip(value);
         }
-        else {
+        else
+        {
             setTip(value);
         }
     };
@@ -88,7 +86,7 @@ const Home = () => {
 
     const handleCountRemove = () => {
         setTotalCount((totalCount) => {
-            if (totalCount == 1) {
+            if (totalCount == 1){
                 const total = 1;
                 return total.toString();
             }
@@ -100,59 +98,28 @@ const Home = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <View>
-                    <Input
-                        label='Bill Total'
-                        amount={bill}
-                        placeholderText='0.00'
-                        handleTextChange={handleBillChange}
-                    />
-                    <Input
-                        label='Tip'
-                        amount={tip}
-                        placeholderText='10'
-                        handleTextChange={handleTipChange}
-                    />
-                    <SplitOutput
-                        totalCount={totalCount}
-                        totalAmount={totalAmount}
-                        handleCountAdd={handleCountAdd}
-                        handleCountRemove={handleCountRemove}
-                    />
-                </View>
-            </TouchableWithoutFeedback>
-            <View style={styles.centeredView}>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                        setModalVisible(!modalVisible);
-                    }}
-                >
-                    <View style={{ paddingTop: 600, width: 500, height: 500, flexDirection: 'column', justifyContent: 'flex-end', alignSelf: 'center', backgroundColor: "white" }}>
-                        <View style={{ height: 500, width: 300, alignSelf: 'center', justifyContent: 'center', backgroundColor: "white" }}>
-                            <SendEmail people={totalCount} />
-                            <Pressable
-                                style={{ width: 300, height: 50, flexDirection: 'column', justifyContent: 'flex-end', alignSelf: 'center', backgroundColor: "white" }}
-                                onPress={() => setModalVisible(!modalVisible)}
-                            >
-                                <Text style={{ width: 300, height: 50, flexDirection: 'column', justifyContent: 'flex-end', alignSelf: 'center', backgroundColor: "white" }}> Close</Text>
-                            </Pressable>
-                        </View>
-                    </View>
-                </Modal>
-                <Pressable
-                    style={{ alignSelf: 'center', justifyContent: 'center' }}
-                    onPress={() => setModalVisible(true)}
-                >
-                    <Text style={{ width: 300, height: 50, flexDirection: 'column', justifyContent: 'flex-end', alignSelf: 'center', backgroundColor: "white" }}>Send Email</Text>
-                </Pressable>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.container}>
+                <Input
+                    label='Bill Total'
+                    amount={bill}
+                    placeholderText='0.00'
+                    handleTextChange={handleBillChange}
+                />
+                <Input
+                    label='Tip'
+                    amount={tip}
+                    placeholderText='10'
+                    handleTextChange={handleTipChange}
+                />
+                <SplitOutput
+                    totalCount={totalCount}
+                    totalAmount={totalAmount}
+                    handleCountAdd={handleCountAdd}
+                    handleCountRemove={handleCountRemove}
+                />
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     );
 };
 
