@@ -4,22 +4,34 @@ import {StyleSheet, Text, View} from 'react-native';
 const styles = StyleSheet.create({
     textTitle: {
         fontSize: 17,
-        color: 'black',
-        fontWeight: '700',
+        color: '#2196F3',
         letterSpacing: 1.5,
+        fontWeight: '700',
+        marginVertical: 3
     },
     textOutput: {
-        fontSize: 25,
+        fontSize: 20,
         color: 'black',
+        padding: 5,
+        borderWidth: 1,
+        flex: 1,
+        marginVertical: 5,
+        borderRadius: 10,
+
     },
+    priceContainer: {
+        width: 110,
+        height: 75,
+        alignSelf: 'center'
+    }
 });
 
 
 const Total = ({ totalAmount }) => {
     return (
-        <View>
-            <Text style={styles.textTitle}>Total</Text>
-            <Text style={styles.textOutput}>{totalAmount}</Text>
+        <View style={styles.priceContainer}>
+            <Text style={styles.textTitle}>Price</Text>
+            <Text style={styles.textOutput}>${totalAmount}</Text>
         </View>
     );
 };
