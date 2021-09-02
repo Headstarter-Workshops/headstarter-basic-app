@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     icon: {
-        backgroundColor: '#d29494',
+        backgroundColor: '#94d2bd',
     },
 });
 
